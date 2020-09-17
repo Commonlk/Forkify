@@ -6,6 +6,7 @@ export const elements = {
   searchResList: $(".results__list"),
   searchRes: $(".results"),
   searchResPages: $(".results__pages"),
+  recipe: $(".recipe"),
 };
 
 export const elementStrings = {
