@@ -1,4 +1,5 @@
 import { elements } from "./base";
+import $ from "jquery";
 
 export const getInput = () => elements.searchInput.val();
 
@@ -9,6 +10,15 @@ export const clearInput = () => {
 export const clearResults = () => {
   elements.searchResList.html("");
   elements.searchResPages.html("");
+};
+
+export const highlightSelected = (id) => {
+  const resultsArr = Array.from($(".results__link"));
+  resultsArr.forEach((el) => {
+    el.classList.remove("results__link--active");
+  });
+
+  $(`a[href="#${id}"]`).addClass("results__link--active");
 };
 
 // "Pasta with tomato and spinach"
