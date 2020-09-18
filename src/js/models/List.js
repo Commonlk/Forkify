@@ -20,4 +20,8 @@ export default class List {
     // [2,4,8] slice(1,2) -> return 4, original array is [2,4,8]
     this.item.splice(index, 1);
   }
+
+  updateCount(id, newCount) {
+    this.items.find((el) => el.id === id).count = newCount;
+  }
 }
