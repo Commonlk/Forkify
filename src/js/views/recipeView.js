@@ -125,7 +125,7 @@ export const updateServingsIngredients = (recipe) => {
   // Update counts
   $(".recipe__info-data--people").text(recipe.servings);
 
-  // Upadate engredients
+  // Upadate ingredients
   const countElements = Array.from($(".recipe__count"));
   countElements.forEach((el, i) => {
     el.textContent = formatCount(recipe.ingredients[i].count);
