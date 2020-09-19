@@ -1,4 +1,5 @@
 import { elements } from "./base";
+import $ from "jquery";
 
 export const renderItem = (item) => {
   const markup = `
@@ -18,4 +19,7 @@ export const renderItem = (item) => {
   elements.shopping.prepend(markup);
 };
 
-export const deleteItem = (item) => {};
+export const deleteItem = (id) => {
+  const item = $(`[data-itemid="${id}"]`);
+  item.remove();
+};
