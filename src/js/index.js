@@ -4,7 +4,8 @@ import List from "./models/List";
 import Likes from "./models/Likes";
 import * as searchView from "./views/SearchView";
 import * as recipeView from "./views/recipeView";
-import * as ListView from "./views/ListView";
+import * as listView from "./views/listView";
+import * as likesView from "./views/likesView";
 import { elements, renderLoader, clearLoader } from "./views/base";
 
 /*
@@ -90,7 +91,7 @@ const controlRecipe = async () => {
 
       // Render recipe
       clearLoader();
-      recipeView.renderRecipe(state.recipe);
+      recipeView.renderRecipe(state.recipe, state.likes.isLiked(id));
     } catch (error) {
       console.log(error);
       alert("Error processing recipe :(");
@@ -113,7 +114,7 @@ const controlList = () => {
   // Add each ingredient to the list
   state.recipe.ingredients.forEach((el) => {
     const item = state.list.addItem(el.count, el.unit, el.ingredient);
-    ListView.renderItem(item);
+    listView.renderItem(item);
   });
 };
 
@@ -127,7 +128,7 @@ elements.shopping.on("click", (e) => {
     state.list.deleteItem(id);
 
     // Delete from UI
-    ListView.deleteItem(id);
+    listView.deleteItem(id);
   }
   // Handle the count update
   else if (e.target.matches(".shopping__count-value")) {
@@ -135,7 +136,8 @@ elements.shopping.on("click", (e) => {
     state.list.updateCount(id, val);
   }
 });
-
+// TESTING
+state.likes = new Likes();
 // LIKE CONTROLLER
 const controlLike = () => {
   if (!state.likes) {
@@ -153,7 +155,7 @@ const controlLike = () => {
       state.recipe.img
     );
     // Toggle the like button
-    console.log(state.likes);
+    likesView.toggleLikeBtn(true);
     // Add like to UI list
 
     // User has liked current recipe
@@ -161,6 +163,7 @@ const controlLike = () => {
     // Remove like from the state
     state.likes.deleteLike(currentID);
     // Toggle the like button
+    likesView.toggleLikeBtn(false);
     // Remove like from UI list
     console.log(state.likes);
   }
