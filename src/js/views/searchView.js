@@ -28,7 +28,7 @@ acc: 5 // acc + curr.lenght = 9 / newtitle = {"Pasta", "with"}
 acc: 9 // acc + curr.lenght = 15 / newtitle = {"Pasta", "with","tomato"}
 acc: 15 // acc + curr.lenght = 18 / newtitle = {"Pasta", "with","tomato"}
 */
-const limitRecipeTitle = (title, limit = 17) => {
+export const limitRecipeTitle = (title, limit = 17) => {
   const newTitle = [];
   if (title.length > limit) {
     title.split(" ").reduce((acc, curr) => {
