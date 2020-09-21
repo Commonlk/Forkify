@@ -138,6 +138,7 @@ elements.shopping.on("click", (e) => {
 });
 // TESTING
 state.likes = new Likes();
+likesView.toggleLikeMenu(state.likes.getNumLikes());
 // LIKE CONTROLLER
 const controlLike = () => {
   if (!state.likes) {
@@ -167,6 +168,7 @@ const controlLike = () => {
     // Remove like from UI list
     console.log(state.likes);
   }
+  likesView.toggleLikeMenu(state.likes.getNumLikes());
 };
 
 // Handling recipe button clicks
