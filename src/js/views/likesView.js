@@ -1,4 +1,5 @@
 import { elements } from "./base";
+import $ from "jquery";
 
 export const toggleLikeBtn = (isLiked) => {
   const iconString = isLiked ? "icon-heart" : "icon-heart-outlined";
@@ -19,7 +20,7 @@ export const renderLike = (like) => {
     <li>
       <a class="likes__link" href="#${like.id}">
           <figure class="likes__fig">
-              <img src="${like.img}" alt="${like.title}">
+              <img src="${like.image}" alt="${like.title}">
           </figure>
           <div class="likes__data">
               <h4 class="likes__name">${like.title}</h4>
@@ -29,4 +30,11 @@ export const renderLike = (like) => {
     </li>
   `;
   elements.likesList.append(markup);
+};
+
+export const deleteLike = (id) => {
+  const el = $(`.likes__link[href="#${id}"]`).parent();
+  if (el) {
+    el.parents.remove();
+  }
 };
