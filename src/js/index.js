@@ -153,11 +153,12 @@ const controlLike = () => {
       currentID,
       state.recipe.title,
       state.recipe.author,
-      state.recipe.img
+      state.recipe.image
     );
     // Toggle the like button
     likesView.toggleLikeBtn(true);
     // Add like to UI list
+    likesView.renderLike(newLike);
 
     // User has liked current recipe
   } else {
@@ -166,7 +167,7 @@ const controlLike = () => {
     // Toggle the like button
     likesView.toggleLikeBtn(false);
     // Remove like from UI list
-    console.log(state.likes);
+    likesView.deleteLike(currentID);
   }
   likesView.toggleLikeMenu(state.likes.getNumLikes());
 };
