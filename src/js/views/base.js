@@ -9,6 +9,7 @@ export const elements = {
   recipe: $(".recipe"),
   shopping: $(".shopping__list"),
   likesMenu: $(".likes__field"),
+  likesList: $(".likes__list"),
 };
 
 export const elementStrings = {
