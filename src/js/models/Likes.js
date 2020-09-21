@@ -3,8 +3,8 @@ export default class Likes {
     this.likes = [];
   }
 
-  addLike(id, title, author, img) {
-    const like = { id, title, author, img };
+  addLike(id, title, author, image) {
+    const like = { id, title, author, image };
     this.likes.push(like);
     return like;
   }
