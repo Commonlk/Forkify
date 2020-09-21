@@ -17,7 +17,6 @@ Global state of the app
 */
 
 const state = {};
-window.state = state;
 
 // SEARCH CONTROLLER
 
@@ -93,7 +92,6 @@ const controlRecipe = async () => {
       clearLoader();
       recipeView.renderRecipe(state.recipe, state.likes.isLiked(id));
     } catch (error) {
-      console.log(error);
       alert("Error processing recipe :(");
     }
   }
@@ -206,5 +204,3 @@ elements.recipe.on("click", (e) => {
     controlLike();
   }
 });
-
-window.l = new List();
