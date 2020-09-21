@@ -18,7 +18,7 @@ export const highlightSelected = (id) => {
     el.classList.remove("results__link--active");
   });
 
-  $(`a[href="#${id}"]`).addClass("results__link--active");
+  $(`.results__link[href="#${id}"]`).addClass("results__link--active");
 };
 
 // "Pasta with tomato and spinach"
