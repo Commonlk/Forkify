@@ -1,3 +1,4 @@
+import { limitRecipeTitle } from "./searchView";
 import { elements } from "./base";
 import $ from "jquery";
 
@@ -23,7 +24,7 @@ export const renderLike = (like) => {
               <img src="${like.image}" alt="${like.title}">
           </figure>
           <div class="likes__data">
-              <h4 class="likes__name">${like.title}</h4>
+              <h4 class="likes__name">${limitRecipeTitle(like.title)}</h4>
               <p class="likes__author">${like.author}</p>
           </div>
       </a>
@@ -33,8 +34,8 @@ export const renderLike = (like) => {
 };
 
 export const deleteLike = (id) => {
-  const el = $(`.likes__link[href="#${id}"]`).parent();
+  const el = $(`.likes__link[href="#${id}"]`);
   if (el) {
-    el.parents.remove();
+    el.parent().remove();
   }
 };
