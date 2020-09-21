@@ -8,6 +8,7 @@ export const elements = {
   searchResPages: $(".results__pages"),
   recipe: $(".recipe"),
   shopping: $(".shopping__list"),
+  likesMenu: $(".likes__field"),
 };
 
 export const elementStrings = {
